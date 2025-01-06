@@ -1,0 +1,172 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOxAuQtZ6SlK0xo7kpPUAqm",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Ojaswa511/Banking/blob/main/mini%20shakespeare\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "ldvJrJcos0sZ"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "h5hjCcLDr2WC",
+        "outputId": "6790476c-2607-4ecf-ea9a-ddfcb6dcbc32"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "--2025-01-06 13:00:36--  https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt\n",
+            "Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...\n",
+            "Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.\n",
+            "HTTP request sent, awaiting response... 200 OK\n",
+            "Length: 1115394 (1.1M) [text/plain]\n",
+            "Saving to: ‘input.txt’\n",
+            "\n",
+            "input.txt           100%[===================>]   1.06M  --.-KB/s    in 0.04s   \n",
+            "\n",
+            "2025-01-06 13:00:36 (23.9 MB/s) - ‘input.txt’ saved [1115394/1115394]\n",
+            "\n"
+          ]
+        }
+      ],
+      "source": [
+        "!wget https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# read it in to inspect it\n",
+        "with open('input.txt', 'r', encoding='utf-8') as f:\n",
+        "    text = f.read()"
+      ],
+      "metadata": {
+        "id": "O6medjfRsLD9"
+      },
+      "execution_count": 2,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(\"length of dataset in characters: \", len(text))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "6xWI_VyAsN8F",
+        "outputId": "96f5e01f-c3f6-4bdd-83e5-63381d0b81c9"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "length of dataset in characters:  1115394\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# let's look at the first 1000 characters\n",
+        "print(text[:1000])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "2c5V0FvqseE0",
+        "outputId": "16100a0c-6f8b-42e8-ce88-e9feff8ad2cb"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "First Citizen:\n",
+            "Before we proceed any further, hear me speak.\n",
+            "\n",
+            "All:\n",
+            "Speak, speak.\n",
+            "\n",
+            "First Citizen:\n",
+            "You are all resolved rather to die than to famish?\n",
+            "\n",
+            "All:\n",
+            "Resolved. resolved.\n",
+            "\n",
+            "First Citizen:\n",
+            "First, you know Caius Marcius is chief enemy to the people.\n",
+            "\n",
+            "All:\n",
+            "We know't, we know't.\n",
+            "\n",
+            "First Citizen:\n",
+            "Let us kill him, and we'll have corn at our own price.\n",
+            "Is't a verdict?\n",
+            "\n",
+            "All:\n",
+            "No more talking on't; let it be done: away, away!\n",
+            "\n",
+            "Second Citizen:\n",
+            "One word, good citizens.\n",
+            "\n",
+            "First Citizen:\n",
+            "We are accounted poor citizens, the patricians good.\n",
+            "What authority surfeits on would relieve us: if they\n",
+            "would yield us but the superfluity, while it were\n",
+            "wholesome, we might guess they relieved us humanely;\n",
+            "but they think we are too dear: the leanness that\n",
+            "afflicts us, the object of our misery, is as an\n",
+            "inventory to particularise their abundance; our\n",
+            "sufferance is a gain to them Let us revenge this with\n",
+            "our pikes, ere we become rakes: for the gods know I\n",
+            "speak this in hunger for bread, not in thirst for revenge.\n",
+            "\n",
+            "\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
